@@ -1,48 +1,108 @@
 package com.example.onebyte.kotlinprep.Models
 
+
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 
-class User {
+class User : Observable() {
     @SerializedName("_id")
     @Expose
-    private var id: String? = null
+     var id: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("age")
     @Expose
-    private var age: String? = null
+     var age: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("area")
     @Expose
-    private var area: String? = null
+     var area: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
+
     @SerializedName("dateOfBirth")
     @Expose
-    private var dateOfBirth: String? = null
+     var dateOfBirth: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("deviceId")
     @Expose
-    private var deviceId: String? = null
+
+     var deviceId: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("deviceType")
     @Expose
-    private var deviceType: String? = null
+     var deviceType: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("email")
     @Expose
-    private var email: String? = null
+     var email: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("fullName")
     @Expose
-    private var fullName: String? = null
+     var fullName: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("gender")
     @Expose
-    private var gender: String? = null
+     var gender: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("mobileNumber")
     @Expose
-    private var mobileNumber: String? = null
+     var mobileNumber: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("registrationType")
     @Expose
-    private var registrationType: String? = null
+     var registrationType: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("profileImage")
     @Expose
-    private var profileImage: String? = null
+    var profileImage: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
     @SerializedName("token")
     @Expose
-    private var token: String? = null
+     var token: String = ""
+        set(value) {
+            field = value
+            setChangedAndNotify(field)
+        }
 
+     fun setChangedAndNotify(field: Any) {
+        setChanged()
+        notifyObservers(field)
+    }
 }

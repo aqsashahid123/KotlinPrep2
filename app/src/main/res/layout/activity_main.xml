@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="loginViewModel"
-            type="com.example.onebyte.kotlinprep.Models.User" />
+            name="userr"
+            type="com.example.onebyte.kotlinprep.Models.ViewModels.OnBoardingViewModel" />
     </data>
 
     <LinearLayout
@@ -21,14 +21,14 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@={loginViewModel.email}" />
+            android:text="@{userr.email}" />
 
         <EditText
             android:id="@+id/etPass"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:text="@={loginViewModel.fullName}" />
+            android:text="@{userr.fullName}" />
 
         <!--<Button-->
             <!--android:id="@+id/btnnClick"-->

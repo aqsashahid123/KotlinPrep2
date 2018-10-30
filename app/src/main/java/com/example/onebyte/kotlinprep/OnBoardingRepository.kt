@@ -16,8 +16,8 @@ class OnBoardingRepository  {
     constructor() {
         mAPIService = ApiUtils.apiService
     }
-    fun getHeadLine(): LiveData<User> {
-        var data = MutableLiveData<User>()
+    fun getHeadLine(): User {
+        var data = User()
 //        var mAPIService: APIService? = null
 
         mAPIService = ApiUtils.apiService
@@ -25,7 +25,7 @@ class OnBoardingRepository  {
             override fun onResponse(call: Call<RootUserModel>, response: Response<RootUserModel>) {
                 Log.i("resp", "post submitted to API." + response.body()!!)
                 if (response.isSuccessful()) {
-                    data.value = response.body()?.user
+                    data = response.body()!!.user!!
                     Log.i("", "post registration to API" + response.body()!!.toString())
                 }
             }

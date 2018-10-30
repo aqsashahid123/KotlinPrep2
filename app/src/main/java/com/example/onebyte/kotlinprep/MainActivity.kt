@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.android.databinding.library.baseAdapters.BR
 
 
 import com.example.onebyte.kotlinprep.Models.RootUserModel
@@ -26,13 +27,20 @@ class MainActivity : AppCompatActivity() {
                     this.setLifecycleOwner(this@MainActivity)
                     this
                 }
-        val mainViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel::class.java)
-        var user:LiveData<User>  = mainViewModel.OnBoardingViewModel()
-        //binding.etEmail.setText(user.hasObservers().)
-//        https@ //github.com/qichuan/mvvm_kotlin
-        //  binding.loginViewModel = mainViewModel.user
+//       val mainViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel()::class.java)
+        //var user:LiveData<User>  = mainViewModel.OnBoardingViewModel()
+
+        val userViewModel = OnBoardingViewModel().OnBoardingViewModel()
+
+        val dataK = OnBoardingViewModel(OnBoardingViewModel().getUser())
+      //  binding.userr = dataK;
+        binding.setVariable(BR.userr,dataK)
         binding.notifyChange()
         binding.executePendingBindings()
+//        //binding.etEmail.setText(user.hasObservers().)
+////        https@ //github.com/qichuan/mvvm_kotlin
+//        //  binding.loginViewModel = mainViewModel.user
+
     }
 
     private fun sendCall() {
