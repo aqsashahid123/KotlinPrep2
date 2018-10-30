@@ -1,5 +1,6 @@
 package com.example.onebyte.kotlinprep
 
+import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
@@ -20,13 +21,16 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-     var binding:ActivityMainBinding  =  DataBindingUtil.setContentView<ActivityMainBinding>(this,R.layout.activity_main)
-                .apply { this.setLifecycleOwner ( this@MainActivity )
-                this}
+        var binding: ActivityMainBinding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+                .apply {
+                    this.setLifecycleOwner(this@MainActivity)
+                    this
+                }
         val mainViewModel = ViewModelProviders.of(this).get(OnBoardingViewModel::class.java)
-         mainViewModel.OnBoardingViewModel()
-
-      //  binding.loginViewModel = mainViewModel.user
+        var user:LiveData<User>  = mainViewModel.OnBoardingViewModel()
+        //binding.etEmail.setText(user.hasObservers().)
+//        https@ //github.com/qichuan/mvvm_kotlin
+        //  binding.loginViewModel = mainViewModel.user
         binding.notifyChange()
         binding.executePendingBindings()
     }

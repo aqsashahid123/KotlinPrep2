@@ -25,11 +25,12 @@ class OnBoardingViewModel : ViewModel() {
     private lateinit var rootUser: LiveData<User>
     private lateinit var repo: OnBoardingRepository
 
-    fun OnBoardingViewModel() {
+    fun OnBoardingViewModel() : LiveData<User> {
 
 
         repo = OnBoardingRepository()
         rootUser = repo.getHeadLine()
+        return rootUser
 
     }
 //    public fun getUser() : LiveData<User>{
